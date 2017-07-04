@@ -1,4 +1,4 @@
-package com.notesapp.model;
+package com.example.easynotes.model;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.data.annotation.CreatedDate;
@@ -19,6 +19,7 @@ public class Note {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotBlank
     private String title;
 
     @NotBlank

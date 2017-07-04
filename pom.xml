@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.example</groupId>
-	<artifactId>spring-boot-mysql-rest-api-tutorial</artifactId>
+	<artifactId>easy-notes</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
-	<name>spring-boot-mysql-rest-api-tutorial</name>
-	<description>Building Rest API for a Simple Note taking app with Spring Boot and Mysql</description>
+	<name>easy-notes</name>
+	<description>Rest API for a Simple Note Taking Application</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

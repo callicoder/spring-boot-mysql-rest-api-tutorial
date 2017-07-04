@@ -1,7 +1,7 @@
-package com.notesapp.controller;
+package com.example.easynotes.controller;
 
-import com.notesapp.model.Note;
-import com.notesapp.repository.NoteRepository;
+import com.example.easynotes.model.Note;
+import com.example.easynotes.repository.NoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -39,7 +39,8 @@ public class NoteController {
     }
 
     @PutMapping("/notes/{id}")
-    public ResponseEntity<Note> updateNote(@PathVariable(value = "id") Long noteId, @Valid @RequestBody Note noteDetails) {
+    public ResponseEntity<Note> updateNote(@PathVariable(value = "id") Long noteId,
+                                           @Valid @RequestBody Note noteDetails) {
         Note note = noteRepository.findOne(noteId);
         if(note == null) {
             return ResponseEntity.notFound().build();
