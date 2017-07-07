@@ -1,5 +1,6 @@
 package com.example.easynotes.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -14,6 +15,8 @@ import java.util.Date;
 @Entity
 @Table(name = "notes")
 @EntityListeners(AuditingEntityListener.class)
+@JsonIgnoreProperties(value = {"createdAt", "updatedAt"},
+        allowGetters = true)
 public class Note {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
