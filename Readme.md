@@ -25,7 +25,7 @@ create database notes_app
 
 **3. Change mysql username and password as per your installation**
 
-+ open src/main/resources/application.properties
++ open `src/main/resources/application.properties`
 
 + change `spring.datasource.username` and `spring.datasource.password` as per your mysql installation
 
