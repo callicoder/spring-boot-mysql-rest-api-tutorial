@@ -15,7 +15,7 @@ Build Restful CRUD API for a simple Note-Taking application using Spring Boot, M
 **1. Clone the application**
 
 ```bash
-git@github.com:callicoder/spring-boot-mysql-rest-api-tutorial.git
+git clone https://github.com/callicoder/spring-boot-mysql-rest-api-tutorial.git
 ```
 
 **2. Create Mysql database**
