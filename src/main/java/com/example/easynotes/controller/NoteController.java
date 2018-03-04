@@ -1,5 +1,6 @@
 package com.example.easynotes.controller;
 
+import com.example.easynotes.exception.ResourceNotFoundException;
 import com.example.easynotes.model.Note;
 import com.example.easynotes.repository.NoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,42 +25,38 @@ public class NoteController {
         return noteRepository.findAll();
     }
 
-    @GetMapping("/notes/{id}")
-    public ResponseEntity<Note> getNoteById(@PathVariable(value = "id") Long noteId) {
-        Note note = noteRepository.findOne(noteId);
-        if(note == null) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok().body(note);
-    }
-
     @PostMapping("/notes")
     public Note createNote(@Valid @RequestBody Note note) {
         return noteRepository.save(note);
     }
 
+    @GetMapping("/notes/{id}")
+    public Note getNoteById(@PathVariable(value = "id") Long noteId) {
+        return noteRepository.findById(noteId)
+                .orElseThrow(() -> new ResourceNotFoundException("Note", "id", noteId));
+    }
+
     @PutMapping("/notes/{id}")
-    public ResponseEntity<Note> updateNote(@PathVariable(value = "id") Long noteId,
+    public Note updateNote(@PathVariable(value = "id") Long noteId,
                                            @Valid @RequestBody Note noteDetails) {
-        Note note = noteRepository.findOne(noteId);
-        if(note == null) {
-            return ResponseEntity.notFound().build();
-        }
+
+        Note note = noteRepository.findById(noteId)
+                .orElseThrow(() -> new ResourceNotFoundException("Note", "id", noteId));
+
         note.setTitle(noteDetails.getTitle());
         note.setContent(noteDetails.getContent());
 
         Note updatedNote = noteRepository.save(note);
-        return ResponseEntity.ok(updatedNote);
+        return updatedNote;
     }
 
     @DeleteMapping("/notes/{id}")
-    public ResponseEntity<Note> deleteNote(@PathVariable(value = "id") Long noteId) {
-        Note note = noteRepository.findOne(noteId);
-        if(note == null) {
-            return ResponseEntity.notFound().build();
-        }
+    public ResponseEntity<?> deleteNote(@PathVariable(value = "id") Long noteId) {
+        Note note = noteRepository.findById(noteId)
+                .orElseThrow(() -> new ResourceNotFoundException("Note", "id", noteId));
 
         noteRepository.delete(note);
+
         return ResponseEntity.ok().build();
     }
 }
