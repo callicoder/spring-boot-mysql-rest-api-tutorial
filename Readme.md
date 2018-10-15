@@ -2,6 +2,8 @@
 
 Build Restful CRUD API for a simple Note-Taking application using Spring Boot, Mysql, JPA and Hibernate.
 
+Version Used for SEC purposes. 
+
 ## Requirements
 
 1. Java - 1.8.x
