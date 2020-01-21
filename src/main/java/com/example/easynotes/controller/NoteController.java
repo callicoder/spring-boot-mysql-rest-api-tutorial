@@ -11,7 +11,6 @@ import javax.validation.Valid;
 import java.util.List;
 
 /**
- * Created by rajeevkumarsingh on 27/06/17.
  */
 @RestController
 @RequestMapping("/api")
@@ -22,7 +21,9 @@ public class NoteController {
 
     @GetMapping("/notes")
     public List<Note> getAllNotes() {
+    	 System.out.println("GetMapping");
         return noteRepository.findAll();
+       
     }
 
     @PostMapping("/notes")
