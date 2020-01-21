@@ -22,6 +22,7 @@ public class NoteController {
     @GetMapping("/notes")
     public List<Note> getAllNotes() {
     	 System.out.println("GetMapping");
+    	 System.out.println("Hello");
         return noteRepository.findAll();
        
     }
