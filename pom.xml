@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>easy-notes</name>
-	<description>Rest API for a Simple Note Taking Application</description>
+	<description>Rest API for a Simple Note Taking Application.</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
