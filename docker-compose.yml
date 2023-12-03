@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:8.0.32
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: notes_app
+      MYSQL_ROOT_PASSWORD: callicoder
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+#  app:
+#    build: .
+#    restart: unless-stopped
+#    depends_on:
+#      - mysql
+#    ports:
+#      - "8080:8080"
+#    environment:
+#      MYSQL_URL: mysql
+#      MYSQL_USER: your_username
+#      MYSQL_PASSWORD: your_password
+
+volumes:
+  mysql_data: {}
