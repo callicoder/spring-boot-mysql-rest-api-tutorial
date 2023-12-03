@@ -3,11 +3,11 @@ package com.example.easynotes.controller;
 import com.example.easynotes.exception.ResourceNotFoundException;
 import com.example.easynotes.model.Note;
 import com.example.easynotes.repository.NoteRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -38,7 +38,7 @@ public class NoteController {
 
     @PutMapping("/notes/{id}")
     public Note updateNote(@PathVariable(value = "id") Long noteId,
-                                           @Valid @RequestBody Note noteDetails) {
+                           @Valid @RequestBody Note noteDetails) {
 
         Note note = noteRepository.findById(noteId)
                 .orElseThrow(() -> new ResourceNotFoundException("Note", "id", noteId));
@@ -56,7 +56,7 @@ public class NoteController {
                 .orElseThrow(() -> new ResourceNotFoundException("Note", "id", noteId));
 
         noteRepository.delete(note);
-
         return ResponseEntity.ok().build();
     }
+
 }

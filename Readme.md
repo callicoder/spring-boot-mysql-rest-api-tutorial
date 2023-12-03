@@ -4,11 +4,11 @@ Build Restful CRUD API for a simple Note-Taking application using Spring Boot, M
 
 ## Requirements
 
-1. Java - 1.8.x
+1. Java - 21
 
 2. Maven - 3.x.x
 
-3. Mysql - 5.x.x
+3. Mysql - 8.x.x
 
 ## Steps to Setup
 
@@ -33,7 +33,7 @@ create database notes_app
 
 ```bash
 mvn package
-java -jar target/easy-notes-1.0.0.jar
+java -jar target/note-taking-app.jar
 ```
 
 Alternatively, you can run the app without packaging it using -
@@ -43,6 +43,31 @@ mvn spring-boot:run
 ```
 
 The app will start running at <http://localhost:8080>.
+
+New alternative to run the app,
+If you want to run application locally with mysql container,
+you can just use docker compose like below:
+
+```bash
+docker compose up
+```
+
+And then, you can directly run the app by one of the above steps.
+
+You can also run spring boot app and mysql container together by
+uncommenting the app service part.
+
+And you can see all the running containers after then:
+
+```bash
+docker ps
+```
+
+After successfully running & testing the services, you can stop and remove those by:
+
+```bash
+docker compose down
+```
 
 ## Explore Rest APIs
 
