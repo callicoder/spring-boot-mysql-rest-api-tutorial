@@ -7,10 +7,10 @@
 	<artifactId>easy-notes</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
-
+	
 	<name>easy-notes</name>
 	<description>Rest API for a Simple Note Taking Application</description>
-
+	
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -21,7 +21,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>11</java.version>
+		<java.version>1.8</java.version>
 	</properties>
 
 	<dependencies>
@@ -60,6 +60,11 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+    				<groupId>org.apache.maven.plugins</groupId>
+    				<artifactId>maven-resources-plugin</artifactId>
+    				<version>3.*</version>
+			</plugin>  
 		</plugins>
 	</build>
 
